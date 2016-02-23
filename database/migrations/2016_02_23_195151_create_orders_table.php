@@ -14,6 +14,10 @@ class CreateOrdersTable extends Migration
     {
         Schema::create('orders', function (Blueprint $table) {
             $table->increments('id');
+            $table->foreign('user_id')->references('id')->on('users');
+            $table->text('address');
+            $table->boolean('isConfirm');
+            $table->boolean('isComplete');
             $table->timestamps();
         });
     }
